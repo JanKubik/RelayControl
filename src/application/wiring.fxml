@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="600.0">
+         <image>
+            <Image url="@../img/bg.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="106.0" layoutY="21.0" prefHeight="101.0" prefWidth="389.0" text="Wiring 8x relays">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font></Label>
+      <ImageView fitHeight="547.0" fitWidth="441.0" layoutX="80.0" layoutY="147.0">
+         <image>
+            <Image url="@../img/8relays.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
