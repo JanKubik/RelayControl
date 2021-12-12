@@ -186,7 +186,7 @@ public class control implements Initializable {
 			B1ON.setVisible(false);
 			B1OFF.setVisible(true);
 			lbl_R1_timer.setDisable(false);
-		}
+			}
 
 	}
 
