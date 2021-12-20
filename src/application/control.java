@@ -58,10 +58,6 @@ public class control implements Initializable {
 	@FXML
 	ComboBox<String> comPortList = new ComboBox<>();
 	
-
-
-	
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -71,6 +67,7 @@ public class control implements Initializable {
 		
 		}
 	reseting();
+	
 	}
 
 	/* 
@@ -126,7 +123,7 @@ public class control implements Initializable {
 			if (chosenPort.openPort()) {
 				btnConnect.setText("Disconnect");
 				comPortList.setDisable(true);
-			//	reseting();
+				
 			}
 		} else {
 			// disconnect
@@ -134,6 +131,8 @@ public class control implements Initializable {
 			comPortList.setDisable(false);
 			btnConnect.setText("Connect");
 		}
+		
+		
 	}
 
 	public void switch1() {
@@ -586,9 +585,9 @@ public class control implements Initializable {
 		wire12.setVisible(false);
 		wire34.setVisible(false);
 		wire56.setVisible(false);
-		wire78.setVisible(false);
-		
-	
+		wire78.setVisible(false);	
 	}
+	
+
 
 }
