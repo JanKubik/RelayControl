@@ -138,6 +138,11 @@ public class control implements Initializable {
 	public void switch1() {
 
 		System.out.println("Switch1 juste pressed");
+		if(!lbl_R12_timer.getText().isBlank()) {
+			System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
+			lbl_R12_timer.setDisable(true);
+		}
+		
 		if (SW1ON.isVisible()) {
 			SW1ON.setVisible(false);
 			B1ON.setVisible(true);
@@ -192,6 +197,7 @@ public class control implements Initializable {
 			B1ON.setVisible(false);
 			B1OFF.setVisible(true);
 			lbl_R1_timer.setDisable(false);
+			lbl_R12_timer.setDisable(false);
 			}
 
 	}
