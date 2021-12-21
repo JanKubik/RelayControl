@@ -164,6 +164,13 @@ public class control implements Initializable {
 												
 							Thread.sleep(Integer.parseInt(lbl_R1_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R1_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('a');
@@ -217,6 +224,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R2_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R2_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('c');
@@ -270,6 +284,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R3_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R3_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('e');
@@ -322,6 +343,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R4_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R4_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('g');
@@ -374,6 +402,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R5_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R5_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('i');
@@ -427,6 +462,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R6_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R6_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('k');
@@ -479,6 +521,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R7_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R7_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('m');
@@ -531,6 +580,13 @@ public class control implements Initializable {
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R8_timer.getText()));
 						} catch (Exception e) {
+							try {
+								lbl_R8_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 
 						output.print('o');
