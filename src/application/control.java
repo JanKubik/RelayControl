@@ -57,6 +57,9 @@ public class control implements Initializable {
 	
 	@FXML
 	ComboBox<String> comPortList = new ComboBox<>();
+	@FXML
+	Button delayBtn_12, delayBtn_34, delayBtn_56, delayBtn_78;	
+
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -138,10 +141,6 @@ public class control implements Initializable {
 	public void switch1() {
 
 		System.out.println("Switch1 juste pressed");
-		if(!lbl_R12_timer.getText().isBlank()) {
-			System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
-			lbl_R12_timer.setDisable(true);
-		}
 		
 		if (SW1ON.isVisible()) {
 			SW1ON.setVisible(false);
@@ -177,12 +176,26 @@ public class control implements Initializable {
 								e1.printStackTrace();
 							}
 						}
+						// new code delay time
+						if(!lbl_R12_timer.getText().isBlank()) {
+							System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
+							lbl_R12_timer.setDisable(true);
+							output.print('a');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText()) + Integer.parseInt(lbl_R2_timer.getText()) );
+							} catch (Exception e) {
+							}
+							switch2();							
+						}else	{
+						
 
 						output.print('a');
 						output.flush();
 						try {
 							Thread.sleep(Integer.parseInt(lbl_R1_timer.getText()));
 						} catch (Exception e) {
+						}
 						}
 
 						//
@@ -238,6 +251,20 @@ public class control implements Initializable {
 								e1.printStackTrace();
 							}
 						}
+	
+						
+						if(!lbl_R12_timer.getText().isBlank()) {
+							System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
+							lbl_R12_timer.setDisable(true);
+							
+							output.print('c');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText())+ Integer.parseInt(lbl_R1_timer.getText()));
+							} catch (Exception e) {
+							}
+							}else {
+						
 
 						output.print('c');
 						output.flush();
@@ -245,7 +272,7 @@ public class control implements Initializable {
 							Thread.sleep(Integer.parseInt(lbl_R2_timer.getText()));
 						} catch (Exception e) {
 						}
-
+					}
 						//
 					} while (!SW2ON.isVisible());
 				}
@@ -616,6 +643,123 @@ public class control implements Initializable {
 			lbl_R8_timer.setDisable(false);
 		}
 	}
+	
+	public void delaydR1R2() { 
+		System.out.println("Switch R1 R2 juste pressed");
+		
+		if (delayBtn_12.getText().equals("Start R1 + R2") && !lbl_R12_timer.getText().isBlank()) {
+			delayBtn_12.setText("STOP");
+			delayBtn_12.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			B1ON.setVisible(true);
+			B2ON.setVisible(true);
+			B1OFF.setVisible(false);
+			B2OFF.setVisible(false);
+			lbl_R1_timer.setDisable(true);
+			lbl_R2_timer.setDisable(true);
+			SW1ON.setDisable(true);
+			SW2ON.setDisable(true);
+			lbl_R12_timer.setDisable(true);
+			
+
+			Thread thread1 = new Thread() {
+				@Override
+				public void run() {
+					// waiting after connection - bootLoader can finish
+					try {
+						Thread.sleep(50);
+					} catch (Exception e) {
+					}
+
+					PrintWriter output = new PrintWriter(chosenPort.getOutputStream());
+
+					// sent to the arduino
+					do {
+						output.print('b');
+						output.flush();
+
+						try {
+												
+							Thread.sleep(Integer.parseInt(lbl_R1_timer.getText()));
+						} catch (Exception e) {
+							try {
+								lbl_R1_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}
+							
+							output.print('a');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R12_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('d');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R2_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R2_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('c');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R12_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+					} while (delayBtn_12.getText().equals("STOP"));
+				}
+			};
+
+			thread1.start();
+
+		} else {
+			delayBtn_12.setText("Start R1 + R2");
+			delayBtn_12.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			SW1ON.setDisable(false);
+			SW2ON.setDisable(false);
+			B1ON.setVisible(false);
+			B2ON.setVisible(false);
+			B1OFF.setVisible(true);
+			B2OFF.setVisible(true);
+			lbl_R1_timer.setDisable(false);
+			lbl_R2_timer.setDisable(false);
+			lbl_R12_timer.setDisable(false);
+			}
+	}
+	
+	public void delaydR3R4() {  }
+	
+	public void delaydR5R6() {  }
+	
+	public void delaydR7R8() {  }
+	
+	
 	
 	private void reseting() {
 		SW1ON.setVisible(true);
