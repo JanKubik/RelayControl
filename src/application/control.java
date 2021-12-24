@@ -661,7 +661,7 @@ public class control implements Initializable {
 			lbl_R12_timer.setDisable(true);
 			
 
-			Thread thread1 = new Thread() {
+			Thread thread12 = new Thread() {
 				@Override
 				public void run() {
 					// waiting after connection - bootLoader can finish
@@ -736,7 +736,7 @@ public class control implements Initializable {
 				}
 			};
 
-			thread1.start();
+			thread12.start();
 
 		} else {
 			delayBtn_12.setText("Start R1 + R2");
@@ -753,11 +753,332 @@ public class control implements Initializable {
 			}
 	}
 	
-	public void delaydR3R4() {  }
+	public void delaydR3R4() {
+System.out.println("Switch R1 R2 juste pressed");
+		
+		if (delayBtn_34.getText().equals("Start R1 + R2") && !lbl_R34_timer.getText().isBlank()) {
+			delayBtn_34.setText("STOP");
+			delayBtn_34.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			B3ON.setVisible(true);
+			B4ON.setVisible(true);
+			B3OFF.setVisible(false);
+			B4OFF.setVisible(false);
+			lbl_R3_timer.setDisable(true);
+			lbl_R4_timer.setDisable(true);
+			SW3ON.setDisable(true);
+			SW4ON.setDisable(true);
+			lbl_R34_timer.setDisable(true);
+			
+
+			Thread thread34 = new Thread() {
+				@Override
+				public void run() {
+					// waiting after connection - bootLoader can finish
+					try {
+						Thread.sleep(50);
+					} catch (Exception e) {
+					}
+
+					PrintWriter output = new PrintWriter(chosenPort.getOutputStream());
+
+					// sent to the arduino
+					do {
+						output.print('f');
+						output.flush();
+
+						try {
+												
+							Thread.sleep(Integer.parseInt(lbl_R3_timer.getText()));
+						} catch (Exception e) {
+							try {
+								lbl_R3_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}
+							
+							output.print('e');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R34_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R34_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('h');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R4_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R4_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('g');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R34_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R34_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+					} while (delayBtn_34.getText().equals("STOP"));
+				}
+			};
+
+			thread34.start();
+
+		} else {
+			delayBtn_34.setText("Start R1 + R2");
+			delayBtn_34.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			SW3ON.setDisable(false);
+			SW4ON.setDisable(false);
+			B3ON.setVisible(false);
+			B4ON.setVisible(false);
+			B3OFF.setVisible(true);
+			B4OFF.setVisible(true);
+			lbl_R3_timer.setDisable(false);
+			lbl_R4_timer.setDisable(false);
+			lbl_R34_timer.setDisable(false);
+			}
+	}
 	
-	public void delaydR5R6() {  }
+	public void delaydR5R6() {
+System.out.println("Switch R1 R2 juste pressed");
+		
+		if (delayBtn_56.getText().equals("Start R1 + R2") && !lbl_R56_timer.getText().isBlank()) {
+			delayBtn_56.setText("STOP");
+			delayBtn_56.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			B5ON.setVisible(true);
+			B6ON.setVisible(true);
+			B5OFF.setVisible(false);
+			B6OFF.setVisible(false);
+			lbl_R5_timer.setDisable(true);
+			lbl_R6_timer.setDisable(true);
+			SW5ON.setDisable(true);
+			SW6ON.setDisable(true);
+			lbl_R56_timer.setDisable(true);
+			
+
+			Thread thread56 = new Thread() {
+				@Override
+				public void run() {
+					// waiting after connection - bootLoader can finish
+					try {
+						Thread.sleep(50);
+					} catch (Exception e) {
+					}
+
+					PrintWriter output = new PrintWriter(chosenPort.getOutputStream());
+
+					// sent to the arduino
+					do {
+						output.print('j');
+						output.flush();
+
+						try {
+												
+							Thread.sleep(Integer.parseInt(lbl_R5_timer.getText()));
+						} catch (Exception e) {
+							try {
+								lbl_R5_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}
+							
+							output.print('i');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R56_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R56_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('l');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R6_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R6_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('k');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R56_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R56_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+					} while (delayBtn_56.getText().equals("STOP"));
+				}
+			};
+
+			thread56.start();
+
+		} else {
+			delayBtn_56.setText("Start R1 + R2");
+			delayBtn_56.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			SW5ON.setDisable(false);
+			SW6ON.setDisable(false);
+			B5ON.setVisible(false);
+			B6ON.setVisible(false);
+			B5OFF.setVisible(true);
+			B6OFF.setVisible(true);
+			lbl_R5_timer.setDisable(false);
+			lbl_R6_timer.setDisable(false);
+			lbl_R56_timer.setDisable(false);
+			}
+	}
 	
-	public void delaydR7R8() {  }
+	public void delaydR7R8() { 
+System.out.println("Switch R1 R2 juste pressed");
+		
+		if (delayBtn_78.getText().equals("Start R1 + R2") && !lbl_R78_timer.getText().isBlank()) {
+			delayBtn_78.setText("STOP");
+			delayBtn_78.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			B7ON.setVisible(true);
+			B8ON.setVisible(true);
+			B7OFF.setVisible(false);
+			B8OFF.setVisible(false);
+			lbl_R7_timer.setDisable(true);
+			lbl_R8_timer.setDisable(true);
+			SW7ON.setDisable(true);
+			SW8ON.setDisable(true);
+			lbl_R78_timer.setDisable(true);
+			
+
+			Thread thread78 = new Thread() {
+				@Override
+				public void run() {
+					// waiting after connection - bootLoader can finish
+					try {
+						Thread.sleep(50);
+					} catch (Exception e) {
+					}
+
+					PrintWriter output = new PrintWriter(chosenPort.getOutputStream());
+
+					// sent to the arduino
+					do {
+						output.print('n');
+						output.flush();
+
+						try {
+												
+							Thread.sleep(Integer.parseInt(lbl_R7_timer.getText()));
+						} catch (Exception e) {
+							try {
+								lbl_R7_timer.setText("1000");
+								Thread.sleep(1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}
+							
+							output.print('m');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R78_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R78_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('p');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R8_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R8_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+							output.print('o');
+							output.flush();
+							try {
+								Thread.sleep(Integer.parseInt(lbl_R78_timer.getText()) );
+							} catch (Exception e) {
+								try {
+									lbl_R78_timer.setText("1000");
+									Thread.sleep(1000);
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							
+					} while (delayBtn_56.getText().equals("STOP"));
+				}
+			};
+
+			thread78.start();
+
+		} else {
+			delayBtn_78.setText("Start R1 + R2");
+			delayBtn_78.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			SW7ON.setDisable(false);
+			SW8ON.setDisable(false);
+			B7ON.setVisible(false);
+			B8ON.setVisible(false);
+			B7OFF.setVisible(true);
+			B8OFF.setVisible(true);
+			lbl_R7_timer.setDisable(false);
+			lbl_R8_timer.setDisable(false);
+			lbl_R78_timer.setDisable(false);
+			}
+	}
 	
 	
 	
