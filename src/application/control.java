@@ -176,29 +176,14 @@ public class control implements Initializable {
 								e1.printStackTrace();
 							}
 						}
-						// new code delay time
-						if(!lbl_R12_timer.getText().isBlank()) {
-							System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
-							lbl_R12_timer.setDisable(true);
+
 							output.print('a');
 							output.flush();
 							try {
-								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText()) + Integer.parseInt(lbl_R2_timer.getText()) );
+								Thread.sleep( Integer.parseInt(lbl_R1_timer.getText())) ;
 							} catch (Exception e) {
 							}
-							switch2();							
-						}else	{
-						
-
-						output.print('a');
-						output.flush();
-						try {
-							Thread.sleep(Integer.parseInt(lbl_R1_timer.getText()));
-						} catch (Exception e) {
-						}
-						}
-
-						//
+							
 					} while (!SW1ON.isVisible());
 				}
 			};
@@ -251,29 +236,14 @@ public class control implements Initializable {
 								e1.printStackTrace();
 							}
 						}
-	
-						
-						if(!lbl_R12_timer.getText().isBlank()) {
-							System.out.println("the value of delay is "+ Integer.parseInt(lbl_R12_timer.getText()));
-							lbl_R12_timer.setDisable(true);
-							
+										
 							output.print('c');
 							output.flush();
 							try {
-								Thread.sleep(Integer.parseInt(lbl_R12_timer.getText())+ Integer.parseInt(lbl_R1_timer.getText()));
+								Thread.sleep(Integer.parseInt(lbl_R2_timer.getText()));
 							} catch (Exception e) {
 							}
-							}else {
-						
-
-						output.print('c');
-						output.flush();
-						try {
-							Thread.sleep(Integer.parseInt(lbl_R2_timer.getText()));
-						} catch (Exception e) {
-						}
-					}
-						//
+							
 					} while (!SW2ON.isVisible());
 				}
 			};
@@ -650,6 +620,7 @@ public class control implements Initializable {
 		if (delayBtn_12.getText().equals("Start R1 + R2") && !lbl_R12_timer.getText().isBlank()) {
 			delayBtn_12.setText("STOP");
 			delayBtn_12.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			wire12.setVisible(true);
 			B1ON.setVisible(true);
 			B2ON.setVisible(true);
 			B1OFF.setVisible(false);
@@ -741,6 +712,7 @@ public class control implements Initializable {
 		} else {
 			delayBtn_12.setText("Start R1 + R2");
 			delayBtn_12.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			wire12.setVisible(false);
 			SW1ON.setDisable(false);
 			SW2ON.setDisable(false);
 			B1ON.setVisible(false);
@@ -759,6 +731,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		if (delayBtn_34.getText().equals("Start R1 + R2") && !lbl_R34_timer.getText().isBlank()) {
 			delayBtn_34.setText("STOP");
 			delayBtn_34.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			wire34.setVisible(true);
 			B3ON.setVisible(true);
 			B4ON.setVisible(true);
 			B3OFF.setVisible(false);
@@ -850,6 +823,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		} else {
 			delayBtn_34.setText("Start R1 + R2");
 			delayBtn_34.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			wire34.setVisible(false);
 			SW3ON.setDisable(false);
 			SW4ON.setDisable(false);
 			B3ON.setVisible(false);
@@ -868,6 +842,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		if (delayBtn_56.getText().equals("Start R1 + R2") && !lbl_R56_timer.getText().isBlank()) {
 			delayBtn_56.setText("STOP");
 			delayBtn_56.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			wire56.setVisible(true);
 			B5ON.setVisible(true);
 			B6ON.setVisible(true);
 			B5OFF.setVisible(false);
@@ -959,6 +934,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		} else {
 			delayBtn_56.setText("Start R1 + R2");
 			delayBtn_56.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			wire56.setVisible(false);
 			SW5ON.setDisable(false);
 			SW6ON.setDisable(false);
 			B5ON.setVisible(false);
@@ -977,6 +953,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		if (delayBtn_78.getText().equals("Start R1 + R2") && !lbl_R78_timer.getText().isBlank()) {
 			delayBtn_78.setText("STOP");
 			delayBtn_78.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+			wire78.setVisible(true);
 			B7ON.setVisible(true);
 			B8ON.setVisible(true);
 			B7OFF.setVisible(false);
@@ -1068,6 +1045,7 @@ System.out.println("Switch R1 R2 juste pressed");
 		} else {
 			delayBtn_78.setText("Start R1 + R2");
 			delayBtn_78.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
+			wire78.setVisible(false);
 			SW7ON.setDisable(false);
 			SW8ON.setDisable(false);
 			B7ON.setVisible(false);
