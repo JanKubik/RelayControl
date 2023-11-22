@@ -22,12 +22,10 @@ import javafx.scene.image.ImageView;
 //import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class control implements Initializable {
+public class Control implements Initializable {
 
 	static SerialPort chosenPort;
 	public ImageView imageWiev;
-	// private Stage stage;
-	// private Scene scene;
 
 	@FXML
 	Button btnConnect;
@@ -151,6 +149,7 @@ public class control implements Initializable {
 			Thread thread1 = new Thread() {
 				@Override
 				public void run() {
+					
 					// waiting after connection - bootLoader can finish
 					try {
 						Thread.sleep(100);
@@ -315,7 +314,7 @@ public class control implements Initializable {
 			B3ON.setVisible(false);
 			B3OFF.setVisible(true);
 			lbl_R3_timer.setDisable(false);
-		}
+			}
 	}
 
 	public void switch4() {
@@ -374,7 +373,7 @@ public class control implements Initializable {
 			B4ON.setVisible(false);
 			B4OFF.setVisible(true);
 			lbl_R4_timer.setDisable(false);
-		}
+			}
 	}
 
 	public void switch5() {
@@ -433,7 +432,7 @@ public class control implements Initializable {
 			B5ON.setVisible(false);
 			B5OFF.setVisible(true);
 			lbl_R5_timer.setDisable(false);
-		}
+			}
 
 	}
 
@@ -493,7 +492,7 @@ public class control implements Initializable {
 			B6ON.setVisible(false);
 			B6OFF.setVisible(true);
 			lbl_R6_timer.setDisable(false);
-		}
+			}
 	}
 
 	public void switch7() {
@@ -552,7 +551,7 @@ public class control implements Initializable {
 			B7ON.setVisible(false);
 			B7OFF.setVisible(true);
 			lbl_R7_timer.setDisable(false);
-		}
+			}
 	}
 
 	public void switch8() {
@@ -611,7 +610,7 @@ public class control implements Initializable {
 			B8ON.setVisible(false);
 			B8OFF.setVisible(true);
 			lbl_R8_timer.setDisable(false);
-		}
+			}
 	}
 	
 	public void delaydR1R2() { 
